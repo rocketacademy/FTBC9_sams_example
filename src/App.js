@@ -2,6 +2,10 @@ import logo from "./logo.svg";
 import "./App.css";
 import React from "react";
 
+import Form from "./Form";
+import HookComponent from "./hookComponent";
+import User from "./User";
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -27,6 +31,23 @@ class App extends React.Component {
   componentWillUnmount() {}
 
   render() {
+    let users = [
+      {
+        firstName: "Jack",
+        lastName: "Cheng",
+        email: "jack@checng.com",
+        dob: "26/08/1992",
+        age: 30,
+      },
+      {
+        firstName: "'Bob'",
+        lastName: "Billy",
+        email: "bob@billy.com",
+        dob: "26/08/1992",
+        age: 30,
+      },
+    ];
+
     // contional rendering
     let name = "Sam";
     let button;
@@ -73,6 +94,14 @@ class App extends React.Component {
     return (
       <div className="App">
         <header className="App-header">
+          <HookComponent name="Simone" />
+
+          {users && users.length > 0 ? (
+            users.map((user) => <User COO="AUS" {...user} />)
+          ) : (
+            <p>No users here</p>
+          )}
+
           <img src={logo} className="App-logo" alt="logo" />
           <p>
             Edit <code>src/App.js</code> and save to reload.
@@ -134,6 +163,7 @@ class App extends React.Component {
 
           {newArray}
         </header>
+        <Form />
       </div>
     );
   }
