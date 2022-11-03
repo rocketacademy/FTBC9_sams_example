@@ -17,6 +17,8 @@ export default class AddCounter extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
+    console.log("Child running submit");
+    // Here is where we lift state
     this.props.newCounter(this.state.name);
     this.setState({
       name: "",
@@ -25,9 +27,11 @@ export default class AddCounter extends React.Component {
 
   render() {
     return (
-      <div>
+      <div style={{ backgroundColor: "grey" }}>
+        <h2 style={{ margin: 0 }}>Add new Counter</h2>
         <form onSubmit={this.handleSubmit}>
           <input
+            style={{ width: "45vw" }}
             type="text"
             value={this.state.name}
             placeholder="Insert new Counter name here"

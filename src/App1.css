@@ -1,0 +1,36 @@
+.appContainer {
+  height: 100vh;
+  background-color: #282c34;
+  color: red;
+}
+
+h2 {
+  color: #fff;
+  margin-top: 0;
+}
+
+.allCountersContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/*
+.FancyBorder {
+  padding: 10px 10px;
+  border: 10px solid;
+}
+
+.FancyBorder-red {
+  border-color: red;
+}
+
+.Dialog-title {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.Dialog-message {
+  font-size: larger;
+} */

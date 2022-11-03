@@ -1,0 +1,12 @@
+.counterContainer {
+  border: solid #000 2px;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  color: #290ad4;
+  background-color: #fff;
+  border-radius: 15%;
+  padding: 20px;
+}

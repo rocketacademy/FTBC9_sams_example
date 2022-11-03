@@ -1,6 +1,11 @@
 import React from "react";
-import Counter from "./Counter";
-import AddCounter from "./AddCounter";
+import Counter from "./components/Counter";
+import AddCounter from "./components/AddCounter";
+import "./App1.css";
+import GetData from "./components/GetData";
+
+import WelcomeDialog from "./components/Specilization";
+// import { Dialog, FancyBorder } from "./Specilization";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -16,13 +21,19 @@ export default class App extends React.Component {
   }
 
   newCounter = (name) => {
+    console.log("PArent func adding new counter -", name);
     let counter = { name: name, count: 0 };
     // Get my counters in a shallow array, and add in my new counter
     let counters = [...this.state.counters, counter];
 
-    this.setState({
-      counters: counters,
-    });
+    this.setState(
+      {
+        counters: counters,
+      },
+      () => {
+        console.log(this.state.counters);
+      }
+    );
   };
 
   incrementMe = (name) => {
@@ -37,6 +48,7 @@ export default class App extends React.Component {
       }
     }
     console.log(index);
+
     // Get my counters in a shallow array
     let counters = [...this.state.counters];
     // Select my counter that I clicked on
@@ -60,20 +72,26 @@ export default class App extends React.Component {
     let sorted = copy.sort((a, b) => b.count - a.count);
 
     return (
-      <div>
-        <AddCounter newCounter={this.newCounter} />
+      <div className="appContainer">
         <h2>Counters</h2>
-        {sorted.map((counter, index) => (
-          <div key={`${counter.name}+1`}>
-            <Counter
-              {...counter}
-              handlePlus={this.incrementMe}
-              // equivlient of below
-              // name={counter.name}
-              // count={counter.count}
-            />
-          </div>
-        ))}
+        <div className="allCountersContainer">
+          {/*style={{ display: "flex" }} */}
+          {sorted.map((counter, index) => (
+            <div key={`${counter.name}+1`}>
+              <Counter
+                {...counter}
+                handlePlus={this.incrementMe}
+                // equivlient of below
+                // name={counter.name}
+                // count={counter.count}
+              />
+            </div>
+          ))}
+        </div>
+        <AddCounter newCounter={this.newCounter} />
+        <GetData />
+
+        {/* <WelcomeDialog /> */}
       </div>
     );
   }
