@@ -1,0 +1,16 @@
+.container {
+  background-color: #282c34;
+}
+
+.pokemonContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.card {
+  border: solid #4dd324e6 3px;
+  margin: 10px;
+}
